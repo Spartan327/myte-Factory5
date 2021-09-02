@@ -4,7 +4,7 @@ import random
 def random_list(my_list, k):
     if my_list and k <= len(my_list):
         return [my_list.pop(random.randint(0,len(my_list)-1)) for _ in range(k)]
-    return None
+    return []
 
 
 def random_list_with_prob(my_list, my_prob, k):
@@ -18,7 +18,7 @@ def random_list_with_prob(my_list, my_prob, k):
 
     """
 
-    if my_list and k <= len(my_list):
+    if my_list and 0 < k <= len(my_list):
         my_prob = [x*10 for x in my_prob]
         result=[]
         for _ in range(k):
@@ -31,11 +31,11 @@ def random_list_with_prob(my_list, my_prob, k):
                     del my_prob[i]
                     break
         return result
-    return None
+    return []
 
 
 def main() -> None:
-    input_list = [1, 3, 4, 3, 9]
+    input_list = [1, 3, 4, 0, 9]
     k = 3
     prob = [.7, .4, .5, .9, .1]
     print(random_list(input_list[:], k))
